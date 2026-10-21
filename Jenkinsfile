@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  environment { APP_NAME = 'test' }
+  environment { APP_ENV = 'test' }
   stages {
     stage('Checkout') {steps { checkout scm } }
     stage('Build')    {steps { bat 'echo Building' } }
