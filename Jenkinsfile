@@ -12,10 +12,10 @@ pipeline {
         }
       }
         stage('Package') { steps { bat 'package.bat' } }
-        post {
+    }
+     post {
             success { archiveArtifacts artifacts: 'dist/**' }
             failure {echo 'CI pipeline failed' }
-        }
-    }
+     }
 }
 
