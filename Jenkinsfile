@@ -9,5 +9,12 @@ pipeline {
             stage('Lint') { steps { bat 'echo Lint' } } } }
         stage('Test') { steps { bat 'echo Test' } }
         stage('Package') { steps { bat 'echo Package' } }
+        stage('Approved') {
+            when { expression { params.ENVIRONMENT == 'production' } }
+            steps { input message: 'Deploy to production?' }
+        }
+        stage('Deploy') {
+            steps { bat "echo Deploy to ${params.ENVIRONMENT}" }
+        }
     }
 }
