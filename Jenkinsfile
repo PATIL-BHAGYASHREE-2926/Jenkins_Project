@@ -8,6 +8,6 @@ pipeline {
             stage('Build') { steps { bat 'echo Build' } }
             stage('Lint') { steps { bat 'echo Lint' } } } }
         stage('Test') { steps { bat 'echo Test' } }
-        state('Package') { steps { bat 'echo Package' } }
+        stage('Package') { steps { bat 'echo Package' } }
     }
 }
